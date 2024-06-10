@@ -8,15 +8,13 @@ export default async function HomePage() {
   });
   console.log(images);
   return (
-    <main className="">
-      <div className="flex flex-wrap gap-4">
-        {images.map((image) => (
-          <div key={image.id} className="w-48">
-            <img src={image.url} alt="" />
-            <p>{image.name}</p>
-          </div>
-        ))}
-      </div>
-    </main>
+    <div className="flex flex-wrap gap-4">
+      {images.map((image) => (
+        <div key={image.id} className="w-48">
+          <img src={image.url} alt="" />
+          <p>{image.name}</p>
+        </div>
+      ))}
+    </div>
   );
 }
