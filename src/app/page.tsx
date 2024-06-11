@@ -20,7 +20,7 @@ async function Images() {
 
 export default async function HomePage() {
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="">
       <Images />
     </div>
   );

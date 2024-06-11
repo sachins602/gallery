@@ -1,18 +1,16 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { UploadButton } from "~/utils/uploadthing";
 
 export default function TopNav() {
   return (
-    <nav className="flex h-16 items-center justify-between ">
-      <div className="flex items-center">
-        <div>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        </div>
-      </div>
+    <nav className="flex flex-row items-center justify-between ">
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UploadButton endpoint="imageUploader" />
+        <UserButton />
+      </SignedIn>
     </nav>
   );
 }
