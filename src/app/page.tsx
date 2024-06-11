@@ -1,15 +1,13 @@
-import { db } from "~/server/db";
+import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id),
-  });
+  const images = await getMyImages();
   return (
-    <div>
+    <div className="flex flex-wrap gap-4">
       {images.map((image) => (
-        <div key={image.id} className="w-48">
+        <div key={image.id} className="h-48 w-48 rounded-lg">
           <img src={image.url} alt="" />
           <p>{image.name}</p>
         </div>
@@ -20,7 +18,7 @@ async function Images() {
 
 export default async function HomePage() {
   return (
-    <div className="">
+    <div className="flex flex-col">
       <Images />
     </div>
   );
